@@ -23,7 +23,7 @@ namespace FoodFinder
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-lumen.css",
+                      "~/Content/bootstrap-cerulean.css",
                       "~/Content/site.css"));
         }
     }

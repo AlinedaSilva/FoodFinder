@@ -49,3 +49,10 @@ img {
         color: black;
         box-shadow: 0 0.5px 1px grey;
     }
+.foodfinderlarge {
+    font-family: Cooper;
+    font-size: 7vw;
+    margin-left: 15%;
+    margin-top: 15%;
+    display: block;
+}
