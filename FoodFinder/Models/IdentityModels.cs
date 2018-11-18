@@ -29,5 +29,7 @@ namespace FoodFinder.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<FoodFinder.Models.ProductViewModel> ProductViewModels { get; set; }
     }
 }
