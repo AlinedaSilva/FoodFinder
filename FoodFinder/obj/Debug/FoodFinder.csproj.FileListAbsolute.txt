@@ -106,3 +106,4 @@ C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder\obj\Debug\FoodFi
 C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder\obj\Debug\FoodFinder.csproj.CopyComplete
 C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder\obj\Debug\FoodFinder.dll
 C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder\obj\Debug\FoodFinder.pdb
+C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder\obj\Debug\FoodFinder.csprojAssemblyReference.cache
