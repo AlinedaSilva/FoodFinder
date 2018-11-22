@@ -11,7 +11,7 @@ namespace FoodFinder.Models
 {
     public class ProductRepository : IProductRepository
     {
-        async Task<ProductViewModel> IProductRepository.GetProductAsync(long id)
+        async Task<ProductViewModel> IProductRepository.GetProductAsync(long id)//does a call to the product information rather than groceries database
         {
             // Part of Requesting the product to the tesco api
             var client = new HttpClient();
@@ -30,7 +30,7 @@ namespace FoodFinder.Models
             }
             return product;
         }
-        async Task<IEnumerable<ProductViewModel>> IProductRepository.GetProductsAsync(string query, int offset, int limit)
+        async Task<IEnumerable<ProductViewModel>> IProductRepository.GetProductsAsync(string query, int offset, int limit)// makerequest method
         {
             var client = new HttpClient();
             var uri = $"https://dev.tescolabs.com/grocery/products/?query={query}&offset={offset.ToString()}&limit={limit.ToString()}";

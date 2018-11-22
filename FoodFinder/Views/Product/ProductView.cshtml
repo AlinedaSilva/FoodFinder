@@ -134,7 +134,7 @@
 <div/>
 @{ 
     string query = ViewContext.RouteData.Values["query"].ToString();// the products passing to the screen
-    int offset = Convert.ToInt32(ViewContext.RouteData.Values["offset"].ToString());
+    int offset = Convert.ToInt32(ViewContext.RouteData.Values["offset"].ToString());// needs the information to put the 10 product 
     string nextButtonEnabledClass = productCount == 0 ? "disabled" : "";
     string previousButtonEnabledClass = offset == 0 ? "disabled" : "";
 }

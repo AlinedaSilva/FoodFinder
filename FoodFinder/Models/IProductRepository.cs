@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FoodFinder.Models
 {
-    interface IProductRepository
+    public interface IProductRepository
     {
         Task<ProductViewModel> GetProductAsync(long id);
         Task<IEnumerable<ProductViewModel>> GetProductsAsync(string query, int offset, int limit = 10);
