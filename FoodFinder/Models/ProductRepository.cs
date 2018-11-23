@@ -16,7 +16,7 @@ namespace FoodFinder.Models
             // Part of Requesting the product to the tesco api
             var client = new HttpClient();
             var uri = $"https://dev.tescolabs.com/product/?tpnc={id.ToString()}";
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "1f018fcb123847b182d07573e0813f5f");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "api key no");
 
             var response = await client.GetAsync(uri);
             string responseString = await response.Content.ReadAsStringAsync();
