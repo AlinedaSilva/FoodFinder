@@ -5,16 +5,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FoodFinder.Models;
+using System.Web.Mvc;
+using FoodFinder.Tests;
+
 
 namespace FoodFinder.Controllers.Tests
 {
     [TestClass()]
     public class PriceWatchControllerTests
     {
+        private IPriceWatchRepository _priceWatchRepository;
+        private IProductRepository _productRepository;
+
         [TestMethod()]
-        public void PriceWatchControllerTest()
+        public void PriceWatchControllerTest(IPriceWatchRepository priceWatchRepository, IProductRepository productRepository)
         {
-            Assert.Fail();
+            _priceWatchRepository = priceWatchRepository;
+            _productRepository = productRepository;
         }
 
         [TestMethod()]
@@ -26,7 +34,8 @@ namespace FoodFinder.Controllers.Tests
         [TestMethod()]
         public void CreateTest()
         {
-            Assert.Fail();
+            TestPriceWatchContext pr = new TestPriceWatchContext();
+           
         }
 
         [TestMethod()]
