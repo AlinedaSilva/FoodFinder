@@ -16,7 +16,7 @@ namespace FoodFinder.Models
         {
             var client = new HttpClient();
             var uri = $"https://dev.tescolabs.com/grocery/products/?query={query}&offset={offset.ToString()}&limit={limit.ToString()}";
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "api key");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "");
 
             var response = await client.GetAsync(uri);
             string responseString = await response.Content.ReadAsStringAsync();

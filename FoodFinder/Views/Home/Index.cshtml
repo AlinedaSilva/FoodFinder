@@ -22,12 +22,12 @@
 </div>
 
 <div>
-    @using (Html.BeginForm("Get", "Product", FormMethod.Get, new { @class = "form-inline" }))
-    {
-    <div class="main">
-        <input class="form-control" type="text" placeholder="Enter your product query" name="query" id="query">
-        @Html.Hidden("offset", 0);
-        <button type="submit" class="btn btn-primary">Search  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-    </div>
-    }
+        @using (Html.BeginForm("Get", "Product", FormMethod.Get, new { @class = "searchbar" }))
+        {
+            <input type="text" placeholder="Enter your product query" name="query" id="query">
+            @Html.Hidden("offset", 0);
+            <button type="submit" class="btn btn-primary" style="width:100%; margin-bottom: 200px">Search  <span class="searchbtn" aria-hidden="true"></span></button>
+        }
+        
 </div>
+
