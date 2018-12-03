@@ -1,12 +1,13 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="~/Content/StyleSheet.css" rel="stylesheet" type="text/css" />
 
 
 <div class="foodfinderlarge">
-    <p>       
+    <p>
         <span style='color: dodgerblue'>F</span>
         <span style='color: purple'>o</span>
         <span style='color: saddlebrown'>o</span>
@@ -16,15 +17,17 @@
         <span style='color: mediumorchid'>n</span>
         <span style='color: darkred'>d</span>
         <span style='color: lightgreen'>e</span>
-        <span style='color: yellow'>r</span>       
+        <span style='color: yellow'>r</span>
     </p>
 </div>
 
-<div>    
-        @using (Html.BeginForm("Get", "Product", FormMethod.Get, new { @class = "form-inline" }))
-        {
-            <input class="form-control" type="text" placeholder="Enter your product query" name="query" id="query">
-            @Html.Hidden("offset", 0);
-            <button type="submit" class="btn btn-primary">Search  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-        }
+<div>
+    @using (Html.BeginForm("Get", "Product", FormMethod.Get, new { @class = "form-inline" }))
+    {
+    <div class="main">
+        <input class="form-control" type="text" placeholder="Enter your product query" name="query" id="query">
+        @Html.Hidden("offset", 0);
+        <button type="submit" class="btn btn-primary">Search  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+    </div>
+    }
 </div>

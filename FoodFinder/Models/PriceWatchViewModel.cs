@@ -12,6 +12,7 @@ namespace FoodFinder.Models
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
         public DateTime CreationDate { get; set; }
+        public DateTime? LastUpdate { get; set; }
         public decimal? LastPrice { get; set; }
         public string PriceIndicatorGlyphicon { get; set; }
         public string PriceIndicatorBgColor { get; set; }

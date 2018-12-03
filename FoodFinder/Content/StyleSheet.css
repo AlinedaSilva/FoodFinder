@@ -1,5 +1,6 @@
 ﻿body {
 }
+
 img {
     width: 80%;
     height: auto;
@@ -7,6 +8,7 @@ img {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10%;
+    
 }
 
 .foodfinderlarge {
@@ -16,6 +18,14 @@ img {
     margin-top: 15%;
     display: block;
 }
+.form-control{
+float:right;
+}
+
+.btn *{
+float:right;
+}
+
 
 
 

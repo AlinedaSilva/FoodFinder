@@ -115,7 +115,7 @@
         <td>
             @{ 
                 string priceWatchButtonDesc = item.HasPriceWatch ? "Added to Price Watch" : "Add to Price Watch";
-                string priceWatchButtonColor = item.HasPriceWatch ? "sucess" : "primary";
+                string priceWatchButtonColor = item.HasPriceWatch ? "success" : "primary";
                 string action = item.HasPriceWatch ? "List" : "Create";
             }
             <td>
@@ -123,18 +123,15 @@
                     @priceWatchButtonDesc
                     <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                 </a>
-            @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
         </td>
     </tr>
 }
 
-</table>
+    </table>
 <div/>
 @{ 
     string query = ViewContext.RouteData.Values["query"].ToString();// the products passing to the screen
-    int offset = Convert.ToInt32(ViewContext.RouteData.Values["offset"].ToString());
+    int offset = Convert.ToInt32(ViewContext.RouteData.Values["offset"].ToString());// needs the information to put the 10 product 
     string nextButtonEnabledClass = productCount == 0 ? "disabled" : "";
     string previousButtonEnabledClass = offset == 0 ? "disabled" : "";
 }
