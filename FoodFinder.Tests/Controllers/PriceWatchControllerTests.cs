@@ -34,8 +34,7 @@ namespace FoodFinder.Controllers.Tests
         [TestMethod()]
         public void CreateTest()
         {
-            TestPriceWatchContext pr = new TestPriceWatchContext();
-           
+            TestPriceWatchContext pr = new TestPriceWatchContext();           
         }
 
         [TestMethod()]
