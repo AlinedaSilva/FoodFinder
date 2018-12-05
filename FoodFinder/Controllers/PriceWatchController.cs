@@ -134,6 +134,15 @@ namespace FoodFinder.Controllers
             return View("PriceWatchView", viewLst);
         }
 
+        //public Task<RedirectToRouteResult> Create(long productId, string productName, string productDescription, string imageUrl) // it was created because of the create test method.
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public Task<RedirectToRouteResult> Create(PriceWatch pw1)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         // GET: PriceWatch/Create
         public ActionResult Create(long productId, decimal price, string productName, string productDescription, string imageUrl)
@@ -158,6 +167,7 @@ namespace FoodFinder.Controllers
                 ett.ProductName = productName;
                 ett.ProductDescription = productDescription;
                 ett.ImageUrl = imageUrl;
+                
 
                 // add a new entry with todays date informing the price
                 ett.Entries = new List<PriceWatchEntry>();
