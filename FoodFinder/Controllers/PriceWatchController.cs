@@ -11,14 +11,23 @@ namespace FoodFinder.Controllers
 {
     public class PriceWatchController : Controller
     {
+        private IFoodFinderContext db = new FoodFinderContext();
+
+        public PriceWatchController() {}        
+        
         private IPriceWatchRepository _priceWatchRepository;
         private IProductRepository _productRepository;
 
-        // dependency injection (ninject)
         public PriceWatchController(IPriceWatchRepository priceWatchRepository, IProductRepository productRepository)
         {
             _priceWatchRepository = priceWatchRepository;
             _productRepository = productRepository;
+            
+        }
+        // dependency injection (ninject)
+        public PriceWatchController(IFoodFinderContext context)
+        {
+           db = context;          
         }
         //// GET: PriceWatch
         //public ActionResult Index()
@@ -139,7 +148,7 @@ namespace FoodFinder.Controllers
 
                 //indicator to enable/disable this entry, not being used at the moment
                 ett.Enabled = true;
-
+                
                 ett.ProductId = productId;
 
                 // get current user
@@ -152,7 +161,7 @@ namespace FoodFinder.Controllers
 
                 // add a new entry with todays date informing the price
                 ett.Entries = new List<PriceWatchEntry>();
-                ett.Entries.Add(new PriceWatchEntry() { Date = ett.CreationDate, Price = price, PriceIndicator = PriceIndicator.Same });
+                ett.Entries.Add(new PriceWatchEntry() { Date = ett.CreationDate,  Price = price, PriceIndicator = PriceIndicator.Same });
 
                 // add to the database
                 _priceWatchRepository.Create(ett);
@@ -166,7 +175,6 @@ namespace FoodFinder.Controllers
                 return View();
             }
         }
-
 
         // GET: PriceWatch/Delete/5
         public ActionResult Delete(long id)

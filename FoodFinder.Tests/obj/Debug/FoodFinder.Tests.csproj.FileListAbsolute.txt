@@ -21,7 +21,6 @@ C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder.Tests\bin\Debug\
 C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
 C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder.Tests\bin\Debug\Microsoft.Owin.Security.dll
 C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder.Tests\bin\Debug\Owin.dll
-C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder.Tests\bin\Debug\EntityFramework.dll
 C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
 C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
@@ -57,3 +56,5 @@ C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder.Tests\bin\Debug\
 C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder.Tests\bin\Debug\Ninject.Web.Common.xml
 C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder.Tests\bin\Debug\Ninject.xml
 C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder.Tests\bin\Debug\Ninject.Web.Common.WebHost.xml
+C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder.Tests\bin\Debug\EntityFramework.SqlServer.xml

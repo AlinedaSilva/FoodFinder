@@ -201,6 +201,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PriceWatchController.cs" />
+    <Compile Include="Controllers\PriceWatchEntryController.cs" />
     <Compile Include="Migrations\201811252220223_Initial.cs" />
     <Compile Include="Migrations\201811252220223_Initial.Designer.cs">
       <DependentUpon>201811252220223_Initial.cs</DependentUpon>
@@ -210,6 +211,8 @@
       <DependentUpon>201811262102252_removeViewModels.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\FoodFinderContext.cs" />
+    <Compile Include="Models\IFoodFinderContext.cs" />
     <Compile Include="Models\IPriceWatchRepository.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -296,6 +299,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Product\ProductView.cshtml" />
     <Content Include="Views\PriceWatch\PriceWatchView.cshtml" />
+    <Content Include="Views\PriceWatchEntry\Create.cshtml" />
+    <Content Include="Views\PriceWatchEntry\Delete.cshtml" />
+    <Content Include="Views\PriceWatchEntry\Details.cshtml" />
+    <Content Include="Views\PriceWatchEntry\Edit.cshtml" />
+    <Content Include="Views\PriceWatchEntry\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

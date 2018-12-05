@@ -7,8 +7,11 @@ using FoodFinder.Models;
 
 namespace FoodFinder.Tests
 {
-    class TestPriceWatchDbSet:TestDbSet<PriceWatchViewModel>
+    class TestPriceWatchDbSet : TestDbSet<PriceWatch>
     {
-       public override PriceWatchViewModel Find
+        public override PriceWatch Find(params object[] keyValues)
+        {
+            return this.SingleOrDefault(product => product.Id == (int)keyValues.Single());
+        }
     }
 }
