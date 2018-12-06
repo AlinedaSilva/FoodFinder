@@ -137,12 +137,7 @@ namespace FoodFinder.Controllers
         //public Task<RedirectToRouteResult> Create(long productId, string productName, string productDescription, string imageUrl) // it was created because of the create test method.
         //{
         //    throw new NotImplementedException();
-        //}
-
-        //public Task<RedirectToRouteResult> Create(PriceWatch pw1)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        //}    
 
         // GET: PriceWatch/Create
         public ActionResult Create(long productId, decimal price, string productName, string productDescription, string imageUrl)

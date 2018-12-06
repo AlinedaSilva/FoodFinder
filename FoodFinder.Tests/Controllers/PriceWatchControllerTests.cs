@@ -11,7 +11,6 @@ using FoodFinder.Tests;
 using System.Web.Http.Results;
 
 
-
 namespace FoodFinder.Controllers.Tests
 {
     [TestClass()]
@@ -28,15 +27,14 @@ namespace FoodFinder.Controllers.Tests
         }
 
         [TestMethod()]
-        public void ListTest()
+        public void List()
         {
             Assert.Fail();
         }
 
         [TestMethod()]
-        public async Task CreateTestAsync()
+        public async Task Create()
         {
-
             // 1st Try ----------------------------------------------------------------
             //TestApplicationDbContext C = new TestApplicationDbContext();
             //PriceWatchController controller = new PriceWatchController(C);
@@ -60,7 +58,7 @@ namespace FoodFinder.Controllers.Tests
         }
 
         //[TestMethod()]
-        //public async Task DeleteTestAsync()
+        //public async Task Delete()
         //{
 
             //var context = new TestApplicationDbContext();
