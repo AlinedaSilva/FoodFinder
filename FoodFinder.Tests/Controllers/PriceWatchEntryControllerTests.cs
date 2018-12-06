@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FoodFinder.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,28 +8,75 @@ using FoodFinder.Models;
 using System.Web.Mvc;
 using FoodFinder.Tests;
 using System.Web.Http.Results;
-
+using FoodFinder.Controllers;
 
 namespace FoodFinder.Controllers.Tests
-{
+{     
     [TestClass()]
     public class PriceWatchEntryControllerTests
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext applicationDbContext;
+
+        public PriceWatchEntryControllerTests(ApplicationDbContext applicationDbContext)
+        {
+            this.applicationDbContext = applicationDbContext;
+        }
+
+        public PriceWatchEntryControllerTests()
+        {
+            
+        }
+
         [TestMethod()]
         public void IndexTest()
         {           
             Assert.Fail();
         }
-
+        // test passed 06/12/2018
         [TestMethod()]
-        public void DetailsTest()
+        public void TestDetailsView()
         {
-            Assert.Fail();
+            var controller = new PriceWatchEntryController();
+            var result = controller.Details(2) as ViewResult;
+            Assert.AreEqual("Details", result.ViewName);
         }
 
         [TestMethod()]
-        public void CreateTest()
+        public async Task CreateInvalidPriceWatchEntry()
         {
+           
+            var priceWatchEntry = new PriceWatchEntry();
+            
+            _service.Expect(s => Create(priceWatchEntry)).Returns(false);
+            var controller = new PriceWatchEntryController(_service.Object);
+
+            var result = (ViewResult)controller.Create(priceWatchEntry);
+
+            Assert.AreEqual("Create", result.ViewName);
+        }
+
+
+
+        [TestMethod()]
+        public async Task Create()
+        {
+            // 4th Try  did not pass but there was not  any errors----------------------------------------------------------------
+            TestApplicationDbContext ff = new TestApplicationDbContext();
+            PriceWatchEntry pwEntry = new PriceWatchEntry
+            {
+                Date = DateTime.Now,
+                Id = 10,
+                Price = 2,
+                PriceIndicator = PriceIndicator.Same
+            };
+            var controller = new PriceWatchEntryController(ff);
+            var result = await controller.Create() as System.Web.Http.Results.RedirectToRouteResult;
+           
+
+            Assert.AreEqual("Details", result.RouteValues["action"]);
+        }
+               
             //1st try: did not work error on the Create
             //TestApplicationDbContext ff = new TestApplicationDbContext();
             //PriceWatch pw1 = new PriceWatch()
@@ -47,7 +93,7 @@ namespace FoodFinder.Controllers.Tests
             //pw1.Entries = new List<PriceWatchEntry>();
             //pw1.Entries.Add(new PriceWatchEntry() { Date = pw1.CreationDate, Price = 3, PriceIndicator = PriceIndicator.Same });
 
-            //2nd try: no errors but did not pass: 
+            //2nd try: no errors but did not pass:---------------------------------------------------------------------------------------- 
             //Arrange
             //PriceWatchEntryController controller = new PriceWatchEntryController(new ApplicationDbContext());
             //PriceWatchEntry pwEntry = new PriceWatchEntry
@@ -63,7 +109,19 @@ namespace FoodFinder.Controllers.Tests
 
             ////Result
             //Assert.AreEqual("Create", result.RouteValues["action"]);
-        }
+
+            // 3rd Try  not finished----------------------------------------------------------------
+            //TestApplicationDbContext C = new TestApplicationDbContext();
+            //PriceWatchEntryController controller = new PriceWatchEntryController(C);
+            //var  pwEntry = new PriceWatchEntry
+            //{
+            //    Date = DateTime.Now,
+            //    Id = 10,
+            //    Price = 2,
+            //    PriceIndicator = PriceIndicator.Same
+            //};
+
+        
 
 
 

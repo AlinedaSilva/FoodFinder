@@ -11,24 +11,29 @@ namespace FoodFinder.Controllers
 {
     public class PriceWatchController : Controller
     {
-        private IFoodFinderContext db = new FoodFinderContext();
+        //private IFoodFinderContext db = new FoodFinderContext();
 
-        public PriceWatchController() {}        
+       // public PriceWatchController() {}        
         
         private IPriceWatchRepository _priceWatchRepository;
         private IProductRepository _productRepository;
 
+        // dependency injection (ninject)
         public PriceWatchController(IPriceWatchRepository priceWatchRepository, IProductRepository productRepository)
         {
             _priceWatchRepository = priceWatchRepository;
             _productRepository = productRepository;
             
         }
-        // dependency injection (ninject)
-        public PriceWatchController(IFoodFinderContext context)
+
+        public PriceWatchController()
         {
-           db = context;          
         }
+
+        //public PriceWatchController(IFoodFinderContext context)
+        //{
+        //   db = context;          
+        //}
         //// GET: PriceWatch
         //public ActionResult Index()
         //{

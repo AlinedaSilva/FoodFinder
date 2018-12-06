@@ -4,7 +4,9 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
+using System.Web.Http.Results;
 using System.Web.Mvc;
 using FoodFinder.Models;
 
@@ -12,14 +14,15 @@ namespace FoodFinder.Controllers
 {
     public class PriceWatchEntryController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-        private ApplicationDbContext applicationDbContext;
+        private IFoodFinderContext db = new FoodFinderContext();
 
-        public PriceWatchEntryController(ApplicationDbContext applicationDbContext)
+        public PriceWatchEntryController() { }
+
+        // dependency injection (ninject)
+        public PriceWatchEntryController(IFoodFinderContext context)
         {
-            this.applicationDbContext = applicationDbContext;
+            db = context;
         }
-
         // GET: PriceWatchEntry
         public ActionResult Index()
         {
@@ -27,24 +30,30 @@ namespace FoodFinder.Controllers
         }
 
         // GET: PriceWatchEntry/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(long id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PriceWatchEntry priceWatchEntry = db.PriceWatchEntries.Find(id);
-            if (priceWatchEntry == null)
-            {
-                return HttpNotFound();
-            }
-            return View(priceWatchEntry);
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            //PriceWatchEntry priceWatchEntry = db.PriceWatchEntries.Find(id);
+            //if (priceWatchEntry == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //return View(priceWatchEntry);
+            return View("Details");
         }
 
         // GET: PriceWatchEntry/Create
-        public ActionResult Create()
+        public ActionResult Create(int v)
         {
             return View();
+        }
+
+        public Task<System.Web.Http.Results.RedirectToRouteResult> Create()
+        {
+            throw new NotImplementedException();
         }
 
         // POST: PriceWatchEntry/Create
@@ -82,18 +91,18 @@ namespace FoodFinder.Controllers
         // POST: PriceWatchEntry/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Date,Price,PriceIndicator")] PriceWatchEntry priceWatchEntry)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(priceWatchEntry).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(priceWatchEntry);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "Id,Date,Price,PriceIndicator")] PriceWatchEntry priceWatchEntry)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(priceWatchEntry).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(priceWatchEntry);
+        //}
 
         // GET: PriceWatchEntry/Delete/5
         public ActionResult Delete(long? id)
