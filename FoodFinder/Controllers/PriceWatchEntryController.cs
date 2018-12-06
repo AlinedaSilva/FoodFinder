@@ -13,6 +13,12 @@ namespace FoodFinder.Controllers
     public class PriceWatchEntryController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext applicationDbContext;
+
+        public PriceWatchEntryController(ApplicationDbContext applicationDbContext)
+        {
+            this.applicationDbContext = applicationDbContext;
+        }
 
         // GET: PriceWatchEntry
         public ActionResult Index()
