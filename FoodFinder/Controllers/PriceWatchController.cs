@@ -187,7 +187,7 @@ namespace FoodFinder.Controllers
         }
 
         // GET: PriceWatch/Delete/5
-        public ActionResult Delete(long id)
+        public ActionResult Remove(long id)
         {
                 try
                 {

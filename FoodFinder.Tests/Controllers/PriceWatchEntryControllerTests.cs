@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using FoodFinder.Tests;
 using System.Web.Http.Results;
 using FoodFinder.Controllers;
+using Moq;
 
 namespace FoodFinder.Controllers.Tests
 {     
@@ -17,6 +18,24 @@ namespace FoodFinder.Controllers.Tests
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationDbContext applicationDbContext;
+        private Mock<IPriceWatchRepository> _service;
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            _service = new Mock<IPriceWatchRepository>();
+        }
+
+        //[TestMethod]
+        //public void CreateValidPriceWatchEntry()
+        //{
+        //    //arrange
+        //    var priceWatchEntry = new PriceWatchEntry();
+        //    _service.Expect(s => s.Create(priceWatchEntry)).Returns(true);
+
+        //    var controller = new PriceWatchEntryController(_service.Object);
+
+        //}
 
         public PriceWatchEntryControllerTests(ApplicationDbContext applicationDbContext)
         {
@@ -24,8 +43,7 @@ namespace FoodFinder.Controllers.Tests
         }
 
         public PriceWatchEntryControllerTests()
-        {
-            
+        {            
         }
 
         [TestMethod()]
@@ -33,7 +51,8 @@ namespace FoodFinder.Controllers.Tests
         {           
             Assert.Fail();
         }
-        // test passed 06/12/2018
+
+        // test passed 06/12/2018 - arround 18: 00 testing just the view
         [TestMethod()]
         public void TestDetailsView()
         {
@@ -42,19 +61,31 @@ namespace FoodFinder.Controllers.Tests
             Assert.AreEqual("Details", result.ViewName);
         }
 
+        // test passed 07/12/2018 - 10:58 testing just the view
         [TestMethod()]
-        public async Task CreateInvalidPriceWatchEntry()
+        public void TestCreateView()
         {
-           
-            var priceWatchEntry = new PriceWatchEntry();
-            
-            _service.Expect(s => Create(priceWatchEntry)).Returns(false);
-            var controller = new PriceWatchEntryController(_service.Object);
-
-            var result = (ViewResult)controller.Create(priceWatchEntry);
-
+            var controller = new PriceWatchEntryController();
+            var result = controller.Create(3) as ViewResult;
             Assert.AreEqual("Create", result.ViewName);
         }
+
+        // trying to test the actual action: 
+
+        //trying again a different one now: 
+        //[TestMethod()]
+        //public async Task CreateInvalidPriceWatchEntry()
+        //{
+
+        //    var priceWatchEntry = new PriceWatchEntry();
+
+        //    _service.Expect(s => Create(priceWatchEntry)).Returns(false);
+        //    var controller = new PriceWatchEntryController(_service.Object);
+
+        //    var result = (ViewResult)controller.Create(priceWatchEntry);
+
+        //    Assert.AreEqual("Create", result.ViewName);
+        //}
 
 
 

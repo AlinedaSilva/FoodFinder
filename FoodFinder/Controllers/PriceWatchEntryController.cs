@@ -28,7 +28,7 @@ namespace FoodFinder.Controllers
         {
             return View(db.PriceWatchEntries.ToList());
         }
-
+        // it worked with the test ViewDetailsTest: 
         // GET: PriceWatchEntry/Details/5
         public ActionResult Details(long id)
         {
@@ -45,10 +45,11 @@ namespace FoodFinder.Controllers
             return View("Details");
         }
 
+        // it worked with the test ViewCreateTest: 
         // GET: PriceWatchEntry/Create
-        public ActionResult Create(int v)
+        public ActionResult Create(long id)
         {
-            return View();
+            return View("Create");
         }
 
         public Task<System.Web.Http.Results.RedirectToRouteResult> Create()

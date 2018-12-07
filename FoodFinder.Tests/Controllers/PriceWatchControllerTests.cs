@@ -9,12 +9,18 @@ using FoodFinder.Models;
 using System.Web.Mvc;
 using FoodFinder.Tests;
 using System.Web.Http.Results;
+using Moq;
 
 namespace FoodFinder.Controllers.Tests
 {
     [TestClass()]
     public class PriceWatchControllerTests
     {
+        // testing the controller:
+        private IMock<IPriceWatchRepository> _mockRepository;
+        private ModelStateDictionary _modelState;
+        private IFoodFinderContext _service;
+
         private IPriceWatchRepository _priceWatchRepository;
         private IProductRepository _productRepository;
 
@@ -56,22 +62,21 @@ namespace FoodFinder.Controllers.Tests
         //----------------------------------------------------------------------------------
     }
 
-        //[TestMethod()]
-        //public async Task Delete()
-        //{
+    //[TestMethod()]
+    //public void Remove()
+    //{
+    //    var context = new TestApplicationDbContext();
+    //    var priceWatch = GetPriceWatch();
+    //    context.PriceWatches.Add(priceWatch);
 
-        //var context = new TestApplicationDbContext();
-        //var priceWatch = GetPriceWatch();
-        //context.PriceWatches.Add(priceWatch);
+    //    var controller = new PriceWatchController(context);
 
-        //var controller = new PriceWatchController(context);
+    //    var result = controller.Remove(100) as OkNegotiatedContentResult<PriceWatch>;
+    //    Assert.IsNotNull(result);
+    //    Assert.AreEqual(priceWatch.Id, result.Content.Id);
 
-        //var result = controller.Delete(100) as OkNegotiatedContentResult<PriceWatch>;
-        //Assert.IsNotNull(result);
-        //Assert.AreEqual(priceWatch.Id, result.Content.Id);
-
-        ////Assert.Fail();
-        ////}
+    //    //Assert.Fail();
+    //    }
         //PriceWatch GetPriceWatch()
         //{
         //    return new PriceWatch()
