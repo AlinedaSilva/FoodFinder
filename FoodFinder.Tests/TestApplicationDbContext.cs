@@ -10,11 +10,12 @@ namespace FoodFinder.Tests
 {
     class TestApplicationDbContext:IFoodFinderContext
     {
+        private IPriceWatchRepository @object;
+
         //  public DbSet<FoodFinder.Models.PriceWatch> PriceWatches { get; set; }
+        
         public TestApplicationDbContext()
         {
-            this.PriceWatches = new TestPriceWatchDbSet();
-            this.PriceWatchEntries = TestPriceWatchEntryDbSet();
         }
 
         private DbSet<PriceWatchEntry> TestPriceWatchEntryDbSet()

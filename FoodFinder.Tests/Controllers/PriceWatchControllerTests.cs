@@ -17,9 +17,8 @@ namespace FoodFinder.Controllers.Tests
     public class PriceWatchControllerTests
     {
         // testing the controller:
-        private IMock<IPriceWatchRepository> _mockRepository;
-        private ModelStateDictionary _modelState;
-        private IFoodFinderContext _service;
+        private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext applicationDbContext;
 
         private IPriceWatchRepository _priceWatchRepository;
         private IProductRepository _productRepository;
@@ -29,7 +28,7 @@ namespace FoodFinder.Controllers.Tests
         {
             _priceWatchRepository = priceWatchRepository;
             _productRepository = productRepository;
-        }
+        }        
 
         [TestMethod()]
         public void List()
