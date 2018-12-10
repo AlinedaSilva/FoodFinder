@@ -124,3 +124,4 @@ C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder\bin\WebActivator
 C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder\obj\Debug\FoodFinder.Migrations.Initial.resources
 C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder\obj\Debug\FoodFinder.csproj.GenerateResource.cache
 C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder\obj\Debug\FoodFinder.Migrations.removeViewModels.resources
+C:\Users\New User\Documents\Final Project\FoodFinder\FoodFinder\obj\Debug\FoodFinder.csprojAssemblyReference.cache

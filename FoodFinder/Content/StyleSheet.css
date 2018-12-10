@@ -13,8 +13,7 @@ img {
 .foodfinderlarge {
     font-family: Cooper;
     font-size: 7vw;
-    margin-left: 15%;
-    margin-top: 15%;
+    margin-top: 20%;
     display: block;
 }
 .searchbar {
@@ -47,7 +46,7 @@ img {
     font-family: Arial,sans-serif;
     font-size: 13px;
     font-weight: bold;
-    margin: 11px 4px;
+    margin: 15px 4px;
 }
     .searchbtn:hover {
         border: 1px solid #757575;
