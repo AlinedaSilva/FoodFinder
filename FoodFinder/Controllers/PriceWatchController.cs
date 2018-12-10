@@ -17,12 +17,14 @@ namespace FoodFinder.Controllers
         
         private IPriceWatchRepository _priceWatchRepository;
         private IProductRepository _productRepository;
+        private CurrentUser _currentUser; // added because of the testing part as it needs to check for the user. 
 
         // dependency injection (ninject)
-        public PriceWatchController(IPriceWatchRepository priceWatchRepository, IProductRepository productRepository)
+        public PriceWatchController(IPriceWatchRepository priceWatchRepository, IProductRepository productRepository, CurrentUser currentUser)
         {
             _priceWatchRepository = priceWatchRepository;
             _productRepository = productRepository;
+            _currentUser = currentUser;
             
         }
 
@@ -48,7 +50,7 @@ namespace FoodFinder.Controllers
                 return RedirectToAction("Login", "Account");
             }
             //get user's price watch
-            var userPriceWatchList = _priceWatchRepository.GetPriceWatches(User.Identity.GetUserId());
+            var userPriceWatchList = _priceWatchRepository.GetPriceWatches(_currentUser.Id);
 
             // make view model
             var viewLst = new List<PriceWatchViewModel>();
@@ -161,7 +163,7 @@ namespace FoodFinder.Controllers
                 ett.ProductId = productId;
 
                 // get current user
-                ett.UserId = User.Identity.GetUserId();
+                ett.UserId = _currentUser.Id;
 
                 // must save this basic information so we don't have to use the api everytime
                 ett.ProductName = productName;
@@ -180,7 +182,7 @@ namespace FoodFinder.Controllers
                 // show the same page to the user, now with the price watch added (green)
                 return Redirect(Request.UrlReferrer.PathAndQuery);
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }

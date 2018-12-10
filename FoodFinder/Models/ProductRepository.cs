@@ -13,7 +13,7 @@ namespace FoodFinder.Models
     {
         async Task<IEnumerable<ProductViewModel>> IProductRepository.GetProductsAsync(string query, int offset, int limit)// makerequest method
         {
-            // adding because of the testing
+            // adding because of the unit testing
             if (string.IsNullOrEmpty(query))
             {
                 return new List<ProductViewModel>();
