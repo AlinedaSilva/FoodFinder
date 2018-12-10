@@ -11,7 +11,7 @@
         <input class=" = form-control" type="text" placeholder="Enter your product query" name="query" id="query" >
         @Html.Hidden("offset", 0);
         <button type="submit" class="btn btn-primary">Search <span class="glyphicon glyphicon-search" aria-hidden="true"></span><span/></button>
-     }
+    }
 </div>
 
 <h2>ViewBag.Title</h2>
@@ -69,10 +69,16 @@
         </th>*@
         <th></th>
     </tr>
+    @{ 
+        string query = (string)ViewBag.Query; // the product passing to the screen
+        int offset = Convert.ToInt32(ViewBag.Offset); // needs the information to put he 10 products
+        string nextButtonEnabledClass = productCount == 0 ? "disabled" : "";
+        string previousButtonEnabledClass = offset == 0 ? "disabled" : "";
+    }
 
-@foreach (var item in Model)
-{
-    <tr>
+    @foreach (var item in Model)
+    {
+        <tr>
         @*<td>
             @Html.DisplayFor(modelItem => item.Tpnb)
         </td>*@
@@ -126,17 +132,10 @@
         </td>
     </tr>
 }
-
     </table>
-<div/>
-@{ 
-    string query = ViewContext.RouteData.Values["query"].ToString();// the products passing to the screen
-    int offset = Convert.ToInt32(ViewContext.RouteData.Values["offset"].ToString());// needs the information to put the 10 product 
-    string nextButtonEnabledClass = productCount == 0 ? "disabled" : "";
-    string previousButtonEnabledClass = offset == 0 ? "disabled" : "";
-}
+</div>
 @* Button action get method, product controller query is passing in the method to call the products in tesco api,  offset is 10 product list showing in the page the formula below is the offset showing on the page - or + the offset showing in the previous or next page this means the results will be 10 more product, each time that we call the tesco api just call for 10 products each time if we clic on the next or previous button we call 10 more or 10 less products.*@"
 <div class=" text-center center-block">
     <a href="@Url.Action("Get", "Product", new { query = query, offset = offset - Model.Count() })" class="btn btn-group-lg btn-primary @previousButtonEnabledClass"><< Previous</a>
-    <a href="@Url.Action("Get", "Product", new { query = query, offset = offset + Model.Count() })" class="btn btn-group-lg btn-primary @nextButtonEnabledClass"><< Next</a>
+    <a href="@Url.Action("Get", "Product", new { query = query, offset = offset + Model.Count() })" class="btn btn-group-lg btn-primary @nextButtonEnabledClass"> Next >></a>
 </div>
