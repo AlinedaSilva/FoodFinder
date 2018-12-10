@@ -33,5 +33,11 @@ namespace FoodFinder.Models
         public System.Data.Entity.DbSet<FoodFinder.Models.PriceWatch> PriceWatches { get; set; }
 
         public System.Data.Entity.DbSet<FoodFinder.Models.PriceWatchEntry> PriceWatchEntries { get; set; }
+
+        // created the below when trying to add the admin panel
+
+      //  public System.Data.Entity.DbSet<FoodFinder.Models.ApplicationUser> ApplicationUsers { get; set; }
+
+      //  public System.Data.Entity.DbSet<FoodFinder.Models.PriceWatchViewModel> PriceWatchViewModels { get; set; }
     }
 }

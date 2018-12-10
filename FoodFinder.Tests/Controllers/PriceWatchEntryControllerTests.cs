@@ -12,12 +12,12 @@ using FoodFinder.Controllers;
 using Moq;
 
 namespace FoodFinder.Controllers.Tests
-{     
+{
     [TestClass()]
     public class PriceWatchEntryControllerTests
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        private ApplicationDbContext applicationDbContext;      
+        private ApplicationDbContext applicationDbContext;
 
         public PriceWatchEntryControllerTests(ApplicationDbContext applicationDbContext)
         {
@@ -25,16 +25,16 @@ namespace FoodFinder.Controllers.Tests
         }
 
         public PriceWatchEntryControllerTests()
-        {            
+        {
         }
 
         [TestMethod()]
         public void IndexTest()
-        {           
+        {
             Assert.Fail();
         }
 
-        // test passed 06/12/2018 - arround 18: 00 testing just the view
+        // test passed 06/12/2018 - arround 18:00 testing just the view
         [TestMethod()]
         public void TestDetailsView()
         {
@@ -51,7 +51,18 @@ namespace FoodFinder.Controllers.Tests
             var result = controller.Create(3) as ViewResult;
             Assert.AreEqual("Create", result.ViewName);
         }
+        // did not work object not set as an instance:
+        //[TestMethod()]
+        //public void CreatePriceWatchEntry()
+        //{
+        //    TestApplicationDbContext cr = new TestApplicationDbContext();
+        //    PriceWatchEntryController controller = new PriceWatchEntryController(cr);
+        //    PriceWatchEntry priceWatchEntry = new PriceWatchEntry() { Date = DateTime.Now, Price = 2, PriceIndicator = PriceIndicator.Same };
 
+        //    var result = controller.Create(priceWatchEntry) as System.Web.Mvc.RedirectToRouteResult;
+
+        //    Assert.AreEqual("Index", result.RouteValues["action"]);
+        //}
 
 
         //trying again a different one now: 
@@ -85,79 +96,49 @@ namespace FoodFinder.Controllers.Tests
         //    var result = await controller.Create() as System.Web.Http.Results.RedirectToRouteResult;
         //    Assert.AreEqual("Details", result.RouteValues["action"]);
         //}
-               
-            //1st try: did not work error on the Create
-            //TestApplicationDbContext ff = new TestApplicationDbContext();
-            //PriceWatch pw1 = new PriceWatch()
-            //{
-            //    UserId = "12222222222",
-            //    ProductId = 293749766,
-            //    CreationDate = DateTime.Now,
-            //    Enabled = true,
-            //    ProductName = "Terry's Chocolate Orange Milk Chocolate Box 157G",
-            //    ProductDescription = "Milk chocolate flavoured with real orange",
-            //    ImageUrl = "http://img.tesco.com/Groceries/pi/863/3664346304863/IDShot_90x90.jpg",
-            //};
 
-            //pw1.Entries = new List<PriceWatchEntry>();
-            //pw1.Entries.Add(new PriceWatchEntry() { Date = pw1.CreationDate, Price = 3, PriceIndicator = PriceIndicator.Same });
+        //1st try: did not work error on the Create
+        //TestApplicationDbContext ff = new TestApplicationDbContext();
+        //PriceWatch pw1 = new PriceWatch()
+        //{
+        //    UserId = "12222222222",
+        //    ProductId = 293749766,
+        //    CreationDate = DateTime.Now,
+        //    Enabled = true,
+        //    ProductName = "Terry's Chocolate Orange Milk Chocolate Box 157G",
+        //    ProductDescription = "Milk chocolate flavoured with real orange",
+        //    ImageUrl = "http://img.tesco.com/Groceries/pi/863/3664346304863/IDShot_90x90.jpg",
+        //};
 
-            //2nd try: no errors but did not pass:---------------------------------------------------------------------------------------- 
-            //Arrange
-            //PriceWatchEntryController controller = new PriceWatchEntryController(new ApplicationDbContext());
-            //PriceWatchEntry pwEntry = new PriceWatchEntry
-            //{
-            //    Date = DateTime.Now,
-            //    Id = 10,
-            //    Price = 2,
-            //    PriceIndicator = PriceIndicator.Same
-            //};
+        //pw1.Entries = new List<PriceWatchEntry>();
+        //pw1.Entries.Add(new PriceWatchEntry() { Date = pw1.CreationDate, Price = 3, PriceIndicator = PriceIndicator.Same });
 
-            ////Act
-            //var result = controller.Create(pwEntry) as System.Web.Mvc.RedirectToRouteResult;
+        //2nd try: no errors but did not pass:---------------------------------------------------------------------------------------- 
+        //Arrange
+        //PriceWatchEntryController controller = new PriceWatchEntryController(new ApplicationDbContext());
+        //PriceWatchEntry pwEntry = new PriceWatchEntry
+        //{
+        //    Date = DateTime.Now,
+        //    Id = 10,
+        //    Price = 2,
+        //    PriceIndicator = PriceIndicator.Same
+        //};
 
-            ////Result
-            //Assert.AreEqual("Create", result.RouteValues["action"]);
+        ////Act
+        //var result = controller.Create(pwEntry) as System.Web.Mvc.RedirectToRouteResult;
 
-            // 3rd Try  not finished----------------------------------------------------------------
-            //TestApplicationDbContext C = new TestApplicationDbContext();
-            //PriceWatchEntryController controller = new PriceWatchEntryController(C);
-            //var  pwEntry = new PriceWatchEntry
-            //{
-            //    Date = DateTime.Now,
-            //    Id = 10,
-            //    Price = 2,
-            //    PriceIndicator = PriceIndicator.Same
-            //};  
+        ////Result
+        //Assert.AreEqual("Create", result.RouteValues["action"]);
 
-        [TestMethod()]
-        public void CreateTest1()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void EditTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void EditTest1()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void DeleteTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void DeleteConfirmedTest()
-        {
-            Assert.Fail();
-        }
+        // 3rd Try  not finished----------------------------------------------------------------
+        //TestApplicationDbContext C = new TestApplicationDbContext();
+        //PriceWatchEntryController controller = new PriceWatchEntryController(C);
+        //var  pwEntry = new PriceWatchEntry
+        //{
+        //    Date = DateTime.Now,
+        //    Id = 10,
+        //    Price = 2,
+        //    PriceIndicator = PriceIndicator.Same
+        //};  
     }
 }
