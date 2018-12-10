@@ -1,6 +1,5 @@
 ﻿[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(FoodFinder.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(FoodFinder.App_Start.NinjectWebCommon), "Stop")]
-
 namespace FoodFinder.App_Start
 {
     using System;

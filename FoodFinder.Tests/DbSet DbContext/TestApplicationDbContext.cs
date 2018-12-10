@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
 using FoodFinder.Models;
 
@@ -12,7 +8,7 @@ namespace FoodFinder.Tests
     {
         //private IPriceWatchRepository @object;
 
-        //  public DbSet<FoodFinder.Models.PriceWatch> PriceWatches { get; set; }
+        //public DbSet<FoodFinder.Models.PriceWatch> PriceWatches { get; set; }
         
         public TestApplicationDbContext()
         {

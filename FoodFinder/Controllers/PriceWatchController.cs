@@ -25,7 +25,6 @@ namespace FoodFinder.Controllers
             _priceWatchRepository = priceWatchRepository;
             _currentUser = currentUser;
         }
-
         //// GET: PriceWatch
         //public ActionResult Index()
         //{
@@ -115,7 +114,6 @@ namespace FoodFinder.Controllers
                         Price = entry.Price,
                         PriceIndicator = entry.PriceIndicator
                     };
-
                     viewModel.Entries.Add(viewModelEntry);
                 }
 

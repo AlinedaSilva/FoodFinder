@@ -49,6 +49,7 @@ namespace FoodFinder.Controllers.Tests
             var chocolates = await pr.GetProductsAsync("chocolate", 0);
 
             int idCount = 0;
+      
 
             foreach (var c in chocolates)
             {

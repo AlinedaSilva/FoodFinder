@@ -14,8 +14,7 @@ namespace FoodFinder.Models
         }
                      
         public DbSet<PriceWatch> PriceWatches { get; set; }
-
-        public DbSet<PriceWatchEntry> PriceWatchEntries => throw new NotImplementedException();
+        public DbSet<PriceWatchEntry> PriceWatchEntries => throw new NotImplementedException(); // for the view testing
 
         public new object Entry(PriceWatchEntry priceWatchEntry)
         {
