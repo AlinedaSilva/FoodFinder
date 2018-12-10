@@ -132,11 +132,11 @@
     <Compile Include="Controllers\ProductControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
-    <Compile Include="TestApplicationDbContext.cs" />
-    <Compile Include="TestPriceWatchDbSet.cs" />
-    <Compile Include="TestDbSet.cs" />
-    <Compile Include="TestPriceWatchEntryDbSet.cs" />
-    <Compile Include="TestPriceWatchRepository.cs" />
+    <Compile Include="DbSet DbContext\TestApplicationDbContext.cs" />
+    <Compile Include="DbSet DbContext\TestPriceWatchDbSet.cs" />
+    <Compile Include="DbSet DbContext\TestDbSet.cs" />
+    <Compile Include="DbSet DbContext\TestPriceWatchEntryDbSet.cs" />
+    <Compile Include="Repositories\TestPriceWatchRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

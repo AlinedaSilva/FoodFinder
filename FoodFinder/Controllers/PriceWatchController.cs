@@ -11,31 +11,21 @@ namespace FoodFinder.Controllers
 {
     public class PriceWatchController : Controller
     {
-        //private IFoodFinderContext db = new FoodFinderContext();
+        private IFoodFinderContext db = new FoodFinderContext();
 
-       // public PriceWatchController() {}        
-        
+        public PriceWatchController() { }
+
         private IPriceWatchRepository _priceWatchRepository;
         private IProductRepository _productRepository;
-        private CurrentUser _currentUser; // added because of the testing part as it needs to check for the user. 
+        private CurrentUser _currentUser;
 
-        // dependency injection (ninject)
-        public PriceWatchController(IPriceWatchRepository priceWatchRepository, IProductRepository productRepository, CurrentUser currentUser)
+        public PriceWatchController(IProductRepository productRepository, IPriceWatchRepository priceWatchRepository, CurrentUser currentUser)
         {
-            _priceWatchRepository = priceWatchRepository;
             _productRepository = productRepository;
+            _priceWatchRepository = priceWatchRepository;
             _currentUser = currentUser;
-            
         }
 
-        public PriceWatchController()
-        {
-        }
-
-        //public PriceWatchController(IFoodFinderContext context)
-        //{
-        //   db = context;          
-        //}
         //// GET: PriceWatch
         //public ActionResult Index()
         //{
@@ -44,7 +34,7 @@ namespace FoodFinder.Controllers
         public async Task<ActionResult> List()
         {
             // If user isn't authenticated, he must login to see his price watch
-            if (!User.Identity.IsAuthenticated)
+            if (!_currentUser.IsAuthenticated)
             {
                 // redirect
                 return RedirectToAction("Login", "Account");
@@ -115,7 +105,7 @@ namespace FoodFinder.Controllers
                 viewModel.Entries = new List<PriceWatchEntryViewModel>();
 
                 //sort by date descending (latest first)
-                foreach(var entry in pricewatch.Entries.OrderByDescending(d=>d.Date))
+                foreach (var entry in pricewatch.Entries.OrderByDescending(d => d.Date))
                 {
                     //create view model for the entry
                     var viewModelEntry = new PriceWatchEntryViewModel()
@@ -133,7 +123,7 @@ namespace FoodFinder.Controllers
                 viewLst.Add(viewModel);
             }
             // update the database if needed
-            if(saveChanges)
+            if (saveChanges)
             {
                 _priceWatchRepository.Save();
             }
@@ -147,7 +137,7 @@ namespace FoodFinder.Controllers
         //}    
 
         // GET: PriceWatch/Create
-        public ActionResult Create(long productId, decimal price, string productName, string productDescription, string imageUrl)
+        public ActionResult Create(long productId, decimal price, string productName, string productDescription, string imageUrl, string query, int offset)
         {
             try
             {
@@ -159,7 +149,7 @@ namespace FoodFinder.Controllers
 
                 //indicator to enable/disable this entry, not being used at the moment
                 ett.Enabled = true;
-                
+
                 ett.ProductId = productId;
 
                 // get current user
@@ -169,18 +159,18 @@ namespace FoodFinder.Controllers
                 ett.ProductName = productName;
                 ett.ProductDescription = productDescription;
                 ett.ImageUrl = imageUrl;
-                
+
 
                 // add a new entry with todays date informing the price
                 ett.Entries = new List<PriceWatchEntry>();
-                ett.Entries.Add(new PriceWatchEntry() { Date = ett.CreationDate,  Price = price, PriceIndicator = PriceIndicator.Same });
+                ett.Entries.Add(new PriceWatchEntry() { Date = ett.CreationDate, Price = price, PriceIndicator = PriceIndicator.Same });
 
                 // add to the database
                 _priceWatchRepository.Create(ett);
                 _priceWatchRepository.Save();
 
                 // show the same page to the user, now with the price watch added (green)
-                return Redirect(Request.UrlReferrer.PathAndQuery);
+                return RedirectToAction("Get", "Product", new { query = query, offset = offset });
             }
             catch (Exception ex)
             {
@@ -191,19 +181,19 @@ namespace FoodFinder.Controllers
         // GET: PriceWatch/Delete/5
         public ActionResult Remove(long id)
         {
-                try
-                {
-                    // remove price by id 
-                    _priceWatchRepository.Remove(id);
-                    _priceWatchRepository.Save();
+            try
+            {
+                // remove price by id 
+                _priceWatchRepository.Remove(id);
+                _priceWatchRepository.Save();
 
-                    return RedirectToAction("List");
-                }
-                catch
-                {
-                    return View();
-                }
- 
+                return RedirectToAction("List");
+            }
+            catch
+            {
+                return View();
+            }
+
         }
     }
 }

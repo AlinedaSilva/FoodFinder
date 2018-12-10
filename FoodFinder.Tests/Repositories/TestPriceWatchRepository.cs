@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FoodFinder.Models;
 
-namespace FoodFinder.Tests
+namespace FoodFinder.Tests.Repositories
 {
     class TestPriceWatchRepository: IPriceWatchRepository
 
