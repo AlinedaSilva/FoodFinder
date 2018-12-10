@@ -7,8 +7,13 @@ using FoodFinder.Models;
 
 namespace FoodFinder.Tests.Repositories
 {
-    class TestPriceWatchRepository: IPriceWatchRepository
-
+    //-----------------------------------------------------------------------------------
+    // ****ATTENTION****
+    // This is why dependency injection is VERY important
+    // We can create a repository implementation that doesn't access the database and can be used just for tests
+    // We will pass it to the controller and it won't know the difference
+    //-----------------------------------------------------------------------------------
+    public class TestPriceWatchRepository: IPriceWatchRepository
     {
         private List<PriceWatch> _priceWatches;
 

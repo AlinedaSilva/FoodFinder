@@ -63,7 +63,5 @@ namespace FoodFinder.Controllers.Tests
             Assert.IsTrue(products.All(d => d.HasPriceWatch));
 
         }
-
-
     }
 }
