@@ -11,13 +11,14 @@ namespace FoodFinder.Models
 {
     public class ProductRepository : IProductRepository
     {
+
         async Task<IEnumerable<ProductViewModel>> IProductRepository.GetProductsAsync(string query, int offset, int limit)// makerequest method
         {
-            // adding because of the unit testing
             if (string.IsNullOrEmpty(query))
             {
                 return new List<ProductViewModel>();
             }
+
             var client = new HttpClient();
             var uri = $"https://dev.tescolabs.com/grocery/products/?query={query}&offset={offset.ToString()}&limit={limit.ToString()}";
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "");
@@ -43,6 +44,7 @@ namespace FoodFinder.Models
                     products.Add(product);
                 }
             }
+
             return products;
 
         }

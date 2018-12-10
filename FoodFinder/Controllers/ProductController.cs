@@ -45,8 +45,8 @@ namespace FoodFinder.Controllers
                 }
             }
             //send back the parameters to the page (used for pagination)
-            RouteData.Values.Add("query", query);
-            RouteData.Values.Add("offset", offset);
+            ViewBag.Query = query;
+            ViewBag.Offset = offset;
 
             return View("ProductView", products);
         }

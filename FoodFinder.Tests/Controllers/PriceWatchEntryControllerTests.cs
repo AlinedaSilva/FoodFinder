@@ -28,12 +28,6 @@ namespace FoodFinder.Controllers.Tests
         {
         }
 
-        [TestMethod()]
-        public void IndexTest()
-        {
-            Assert.Fail();
-        }
-
         // test passed 06/12/2018 - arround 18:00 testing just the view
         [TestMethod()]
         public void TestDetailsView()

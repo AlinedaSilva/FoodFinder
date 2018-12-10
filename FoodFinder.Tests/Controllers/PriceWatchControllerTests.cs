@@ -15,6 +15,7 @@ namespace FoodFinder.Controllers.Tests
     [TestClass()]
     public class PriceWatchControllerTests
     {
+        // test passed 10/12/18 testing the create action in the price watch. 
         [TestMethod]
         public async Task Create()
         {

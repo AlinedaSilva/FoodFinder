@@ -14,6 +14,7 @@ namespace FoodFinder.Controllers.Tests
     [TestClass()]
     public class ProductControllerTests
     {
+        // test passed 10/12/18 - 14:35 Get the products when typing the product name in the FoodFinder bar
         [TestMethod]
         public async Task Get()
         {
@@ -27,6 +28,8 @@ namespace FoodFinder.Controllers.Tests
             Assert.IsNotNull(res.Model);
             Assert.AreEqual("ProductView", res.ViewName);
         }
+      // test passed 10/12/18 - 14:35 Get the product in already in the price watch 
+
         [TestMethod]
         public async Task GetWithPriceWatches()
         {
