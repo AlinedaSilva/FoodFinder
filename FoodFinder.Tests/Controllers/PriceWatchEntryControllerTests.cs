@@ -51,6 +51,7 @@ namespace FoodFinder.Controllers.Tests
             var result = controller.Create(3) as ViewResult;
             Assert.AreEqual("Create", result.ViewName);
         }
+
         // did not work object not set as an instance:
         //[TestMethod()]
         //public void CreatePriceWatchEntry()

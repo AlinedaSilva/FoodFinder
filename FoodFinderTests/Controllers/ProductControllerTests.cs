@@ -5,31 +5,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FoodFinder.Models;
-using System.Web.Mvc;
-using FoodFinder.Tests;
-using System.Web.Http.Results;
-using Moq;
 
 namespace FoodFinder.Controllers.Tests
 {
     [TestClass()]
-    public class PriceWatchControllerTests
+    public class ProductControllerTests
     {
-        [TestMethod]
-        public async Task Create()
+        [TestMethod()]
+        public void ProductControllerTest()
         {
-            IProductRepository pr = new ProductRepository();
-
+            Assert.Fail();
         }
 
-
-
+        [TestMethod()]
+        public void GetTest()
+        {
+            Assert.Fail();
+        }
     }
-
-    }
-
-
-
-
-
+}
