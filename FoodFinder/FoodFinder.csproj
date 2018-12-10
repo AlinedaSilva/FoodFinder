@@ -211,6 +211,7 @@
       <DependentUpon>201811262102252_removeViewModels.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CurrentUser.cs" />
     <Compile Include="Models\FoodFinderContext.cs" />
     <Compile Include="Models\IFoodFinderContext.cs" />
     <Compile Include="Models\IPriceWatchRepository.cs" />

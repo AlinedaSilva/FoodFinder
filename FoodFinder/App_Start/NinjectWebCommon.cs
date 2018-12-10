@@ -10,6 +10,7 @@ namespace FoodFinder.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Web.Common.WebHost;
+    using System.Security.Principal;
 
     public static class NinjectWebCommon
     {
@@ -46,6 +47,9 @@ namespace FoodFinder.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
                 kernel.Bind<IPriceWatchRepository>().To<PriceWatchRepository>();
                 kernel.Bind<IProductRepository>().To<ProductRepository>();
+                kernel.Bind<IIdentity>().ToMethod(c=> HttpContext.Current.User.Identity);
+                kernel.Bind<CurrentUser>().To<CurrentUser>();
+
 
                 RegisterServices(kernel);
                 return kernel;
