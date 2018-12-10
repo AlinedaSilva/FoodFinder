@@ -135,6 +135,7 @@
     <Compile Include="TestPriceWatchDbSet.cs" />
     <Compile Include="TestDbSet.cs" />
     <Compile Include="TestPriceWatchEntryDbSet.cs" />
+    <Compile Include="TestPriceWatchRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
