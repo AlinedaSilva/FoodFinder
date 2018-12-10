@@ -18,24 +18,31 @@ namespace FoodFinder.Controllers
         //}
         private IProductRepository _productRepository;
         private IPriceWatchRepository _priceWatchRepository;
+        private CurrentUser _currentUser; // adding to facilitate the unit testing
         
-        public ProductController(IProductRepository productRepository, IPriceWatchRepository priceWatchRepository)
+        public ProductController(IProductRepository productRepository, IPriceWatchRepository priceWatchRepository, CurrentUser currentUser)
         {
             _productRepository = productRepository;
             _priceWatchRepository = priceWatchRepository;
+            _currentUser = currentUser;
         }
         public async Task <ActionResult> Get(string query, int offset)
         {
             // query for products in the api
             var products = await _productRepository.GetProductsAsync(query, offset);
-            // get current user's price watch
-            var myPriceWatch = _priceWatchRepository.GetPriceWatches(User.Identity.GetUserId());
 
-            // if product is present in the user's price watch, must set the indicator so it becomes green on the page and he can't add it again
-            foreach (var product in products)
+            if (_currentUser.IsAuthenticated)
             {
-                if (myPriceWatch.Any(d => d.ProductId == product.Id))
-                    product.HasPriceWatch = true;
+                // get current user's price watch
+                var myPriceWatch = _priceWatchRepository.GetPriceWatches(_currentUser.Id);
+
+
+                // if product is present in the user's price watch, must set the indicator so it becomes green on the page and he can't add it again
+                foreach (var product in products)
+                {
+                    if (myPriceWatch.Any(d => d.ProductId == product.Id))
+                        product.HasPriceWatch = true;
+                }
             }
             //send back the parameters to the page (used for pagination)
             RouteData.Values.Add("query", query);
