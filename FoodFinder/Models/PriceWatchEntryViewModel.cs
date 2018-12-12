@@ -51,7 +51,7 @@ namespace FoodFinder.Models
                     case PriceIndicator.Up:
                         return "danger";
                     case PriceIndicator.Down:
-                        return "sucess";
+                        return "success";
                     case PriceIndicator.Same:
                         return "";
 

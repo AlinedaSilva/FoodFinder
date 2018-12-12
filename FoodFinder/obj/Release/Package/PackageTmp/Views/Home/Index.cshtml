@@ -1,30 +1,39 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="~/Content/StyleSheet.css" rel="stylesheet" type="text/css" />
 
 
 <div class="foodfinderlarge">
-    <p>       
-        <span style='color: dodgerblue'>F</span>
-        <span style='color: purple'>o</span>
-        <span style='color: saddlebrown'>o</span>
-        <span style='color: olivedrab'>d</span>
-        <span style='color: darkgoldenrod'>F</span>
-        <span style='color: darkblue'>i</span>
-        <span style='color: mediumorchid'>n</span>
-        <span style='color: darkred'>d</span>
-        <span style='color: lightgreen'>e</span>
-        <span style='color: yellow'>r</span>       
-    </p>
+    <center>
+        <p>
+
+            <span style='color: dodgerblue'>F</span>
+            <span style='color: purple'>o</span>
+            <span style='color: saddlebrown'>o</span>
+            <span style='color: teal'>d</span>
+            <span style='color: orangered'>F</span>
+            <span style='color: mediumorchid'>i</span>
+            <span style='color: forestgreen'>n</span>
+            <span style='color: darkred'>d</span>
+            <span style='color: darkslategray'>e</span>
+            <span style='color: goldenrod'>r</span>
+        </p>
+    </center>
 </div>
 
-<div>    
+<div>
+    <center>
         @using (Html.BeginForm("Get", "Product", FormMethod.Get, new { @class = "form-inline" }))
         {
             <input class="form-control" type="text" placeholder="Enter your product query" name="query" id="query">
             @Html.Hidden("offset", 0);
             <button type="submit" class="btn btn-primary">Search  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
         }
+    </center>
 </div>
+
+           @*<button type="submit" class="btn btn-primary" style="width:100%; margin-bottom: 200px">Search  <span class="searchbtn" aria-hidden="true"></span></button>*@
+

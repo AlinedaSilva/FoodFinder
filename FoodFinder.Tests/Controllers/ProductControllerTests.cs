@@ -28,7 +28,7 @@ namespace FoodFinder.Controllers.Tests
             Assert.IsNotNull(res.Model);
             Assert.AreEqual("ProductView", res.ViewName);
         }
-      // test passed 10/12/18 - 14:35 Get the product in already in the price watch 
+      // test passed 10/12/18 - 14:35 Get the product if already in the price watch 
 
         [TestMethod]
         public async Task GetWithPriceWatches()
@@ -61,7 +61,6 @@ namespace FoodFinder.Controllers.Tests
             var products = (IEnumerable < ProductViewModel >) res.Model;
 
             Assert.IsTrue(products.All(d => d.HasPriceWatch));
-
         }
     }
 }

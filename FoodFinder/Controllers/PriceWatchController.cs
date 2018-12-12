@@ -2,13 +2,16 @@
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+//using System.Web.Http;
 using System.Web.Mvc;
 
 namespace FoodFinder.Controllers
 {
+    [Authorize]
     public class PriceWatchController : Controller
     {
         private IFoodFinderContext db = new FoodFinderContext();
@@ -25,11 +28,19 @@ namespace FoodFinder.Controllers
             _priceWatchRepository = priceWatchRepository;
             _currentUser = currentUser;
         }
+
         //// GET: PriceWatch
         //public ActionResult Index()
         //{
         //    return View();
         //}
+
+            [Authorize(Roles ="Admin")]
+        public async Task<ActionResult> ListAllPriceWatches()
+        {
+            return View("PriceWatchView", await db.PriceWatches.ToListAsync());
+        }
+
         public async Task<ActionResult> List()
         {
             // If user isn't authenticated, he must login to see his price watch
